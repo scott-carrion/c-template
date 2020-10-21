@@ -1,1 +1,4 @@
-This was made locally
+# c-template
+Template repository for C/C++ projects
+
+COPYRIGHT (c) 2020 SCOTT CARLOS CARRION. DO NOT DISTRIBUTE WITHOUT EXPRESS PERMISSION
