@@ -9,8 +9,8 @@
 #
 
 # Compiler Selection
-CXX = g++
-# CXX = clang++
+CC = gcc  # Default to GNU compiler
+CXX = g++  # Default to GNU compiler
 
 # Build directory selection (do not include / character)
 BUILD_DIR = build
@@ -35,7 +35,11 @@ OBJS = $(addsuffix .o, $(basename $(addprefix $(BUILD_DIR)/, $(notdir $(SOURCES)
 
 # Extra fun stuff
 .PHONY: all clean  # Phony targets
-UNAME_S := $(shell uname -s)
+KERNEL_NAME := $(shell uname -s)
+KERNEL_VERSION := $(shell uname -r)
+HARDWARE_NAME := $(shell uname -m)
+
+OS_NAME = "Other OS"
 
 # Compiler flags and libraries to link go here
 CXXFLAGS = -g -std=c++11
@@ -44,38 +48,43 @@ LIBS =
 ####################################################################################
 
 # Build-specific parameters
+#
+# You can also put in if clauses for kernel version and hardware name similarly if
+# you need! Most of the time though, difference in kernel is all that's needed
 
-ifeq ($(UNAME_S), Linux)  # If platform is Linux
-        PLATFORM_NAME = "Linux"
-        # Other stuff goes here...
+ifeq ($(KERNEL_NAME), Linux)  # If kernel is Linux, platform is GNU/Linux
+        OS_NAME  = "GNU/Linux"
+	# Other stuff goes here...
 endif
 
-ifeq ($(UNAME_S), Darwin)  # If platform is Mac OS X
-        PLATFORM_NAME = "Mac OS X"
+ifeq ($(KERNEL_NAME), Darwin)  # If platform is Darwin, platform is probably Mac OS X
+        OS_NAME = "Mac OS X"
+	CC = clang  # Apple devs use their own build of LLVM/clang
+        CXX = clang++  # Apple devs use their own build of LLVM/clang++
         # Other stuff goes here...
 endif
 ####################################################################################
 
 # General build rules
 
-$(BUILD_DIR)/%.o:src/%.cpp  # This assumes bulk of source files are in src/ folder
+$(BUILD_DIR)/%.o:src/%.cpp  # This assumes bulk of source files are in src/ directory
 	mkdir -p $(@D)
-	@echo Compiling .cpp file
+	@printf "Compiling .cpp file\n"
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 # $(BUILD_DIR)/%.o:my/source/folder/%.cpp  # This is a template for adding other sources
-# 	@echo Compiling .cpp file in this cool directory
+# 	@printf Compiling .cpp file in this cool directory
 # 	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 all: $(EXE) # $(EXE_2)
-	@echo Build complete for $(PLATFORM_NAME)
+	@printf "\e[92mBuild complete for $(OS_NAME) ($(KERNEL_NAME) v$(KERNEL_VERSION)/$(HARDWARE_NAME))\n"
 
 $(EXE): $(OBJS)
-	@echo Linking object files \($(EXE)\)
+	@printf "Linking object files ($(EXE))\n"
 	$(CXX) -o $@ $^ $(CXXFLAGS) $(LIBS)
 
 #$(EXE_2): $(OBJS_2)
-#	@echo Linking object files \($(EXE_2)\)
+#	@printf "Linking object files ($(EXE_2))\n"
 #	$(CXX) -o $@ $^ $(CXXFLAGS) $(LIBS)
 
 clean: 
