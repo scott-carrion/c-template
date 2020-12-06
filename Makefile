@@ -58,7 +58,7 @@ ifeq ($(KERNEL_NAME), Linux)  # If kernel is Linux, platform is GNU/Linux
 endif
 
 ifeq ($(KERNEL_NAME), Darwin)  # If platform is Darwin, platform is probably Mac OS X
-        OS_NAME = "Mac OS X"
+        OS_NAME = "MacOS"
 	CC = clang  # Apple devs use their own build of LLVM/clang
         CXX = clang++  # Apple devs use their own build of LLVM/clang++
         # Other stuff goes here...
