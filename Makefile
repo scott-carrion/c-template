@@ -77,7 +77,7 @@ $(BUILD_DIR)/%.o:src/%.cpp  # This assumes bulk of source files are in src/ dire
 # 	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 all: $(EXE) # $(EXE_2)
-	@printf "\e[92mBuild complete for $(OS_NAME) ($(KERNEL_NAME) v$(KERNEL_VERSION)/$(HARDWARE_NAME))\n"
+	@printf "\e[92mBuild complete for $(OS_NAME) ($(KERNEL_NAME) v$(KERNEL_VERSION)/$(HARDWARE_NAME))\e[39m\n"
 
 $(EXE): $(OBJS)
 	@printf "Linking object files ($(EXE))\n"
