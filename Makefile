@@ -21,6 +21,7 @@ EXE = $(BUILD_DIR)/template_app
 
 # Source Paths (EXE)
 SOURCES = src/main.cpp  # Main
+SOURCES += src/flagopt.cpp  # flagopt
 # Do "SOURCES += path/to/my/other/files" to add other files for compilation of EXE
 
 # Source Paths (EXE_2)
