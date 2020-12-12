@@ -24,6 +24,7 @@ received any unauthorized help on this academic work.
 // --- PREPROCESSOR DIRECTIVES --- //
 #include <iostream>
 #include "flagopt.hpp"
+#include "descsig.hpp"
 
 // --- ARGUMENT PARSING FUNCTION ---
 void parseargs(const size_t& max_flags, int* const argc, char** argv)
@@ -63,6 +64,7 @@ void parseargs(const size_t& max_flags, int* const argc, char** argv)
 
 int main(int argc, char** argv)
 {
+	descsig_install_handler(false);
 	parseargs(2, &argc, argv);
 
 	std::cout << "Hello, World!" << std::endl;

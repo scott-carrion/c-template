@@ -2,7 +2,7 @@
 // 
 //  Author: Scott Carlos Carrion
 //  Description: Interface file for flagopt (command line parsing class)
-//		 flagopt is POSIX compliant. See source code comments for usage information
+//		 flagopt is POSIX.1-2017 compliant. See source code comments for usage information
 //
 //  This program is copyrighted and may not be duplicated or distributed
 //  without express permission by Scott Carlos Carrion
