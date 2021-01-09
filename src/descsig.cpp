@@ -3,9 +3,6 @@
 //  Author: Scott Carlos Carrion
 //  Description: Implementation file for descriptive signal handlers
 //
-//  This program is copyrighted and may not be duplicated or distributed
-//  without express permission by Scott Carlos Carrion
-//
 //  Copyright (c) Scott Carlos Carrion, 2020
 //
 //  scott.carrion@tamu.edu

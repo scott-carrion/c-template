@@ -4,9 +4,6 @@
 //  Description: Interface file for descriptive signal handlers.
 //		 descsig is POSIX.1-2017 compliant. See source code comments for usage information
 //
-//  This program is copyrighted and may not be duplicated or distributed
-//  without express permission by Scott Carlos Carrion
-//
 //  Copyright (c) Scott Carlos Carrion, 2020
 //
 //  scott.carrion@tamu.edu

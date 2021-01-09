@@ -1,4 +1,4 @@
 # c-template
 Template repository for C/C++ projects
 
-COPYRIGHT (c) 2020 SCOTT CARLOS CARRION. DO NOT DISTRIBUTE WITHOUT EXPRESS PERMISSION
+COPYRIGHT (c) 2020 Scott Carlos Carrion. See LICENSE.txt for use and distribution permissions
