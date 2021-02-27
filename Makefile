@@ -53,7 +53,7 @@ LIBS =
 
 ifeq ($(KERNEL_NAME), Linux)  # If kernel is Linux, platform is GNU/Linux
         OS_NAME  = "GNU/Linux"
-	# Other stuff goes here...
+        # Other stuff goes here...
 endif
 
 ifeq ($(KERNEL_NAME), Darwin)  # If platform is Darwin, platform is probably Mac OS X
