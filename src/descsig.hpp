@@ -8,6 +8,22 @@
 //
 //  scott.carrion@tamu.edu
 
+
+// ** Important information about correctness of this software **
+//
+// According to the Linux manual on sigaction (https://man7.org/linux/man-pages/man2/sigaction.2.html
+// accessed 05/25/2021), there exists a bug in the Linux implementation of sigaction such that "the
+// kernel does not always provide meaningful values for all of the fields of the siginfo_t that are
+// relevant for that signal". Unfortunately, on GNU/Linux operating systems, or operating systems
+// that utilize the Linux kernel, the reliability and correctness of this software is subject to the
+// prevalence of the above-discussed bug at this time. If the kernel doesn't deliver the information,
+// then descsig can't deliver anything either. The only surefire way to fix this bug is to fix it at
+// the kernel level, something that the author does not see a fruitful outcome doing (not only is it
+// a difficult problem to fix, but it would also have to be an alteration reviewed, accepted, and
+// merged into the Linux kernel at the project level, a monumental task).
+
+
+
 #ifndef __DESCSIG_HPP__
 #define __DESCSIG_HPP__
 
