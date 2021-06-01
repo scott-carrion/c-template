@@ -62,7 +62,8 @@ static void descsig_handler(int signo, siginfo_t* info, void* vcontext)
 	// First, print the signal number and description to stdout
 	char* sigdesc = strsignal(info->si_signo);
 
-	// XXX temp, testing out ucontext
+	// Casting and giving lvalue for context, but it isn't used in descsig report (for now)
+	// Set a breakpoint in your debugger of choice to analyze the context yourself if you like! This might be integrated into the signal report in the future
 	ucontext_t* context = (ucontext_t*)vcontext;
 
 	fprintf(stderr, "\e[47m\e[1;31m  *** BEGIN DESCSIG SIGNAL REPORT ***  \e[0m\n\e[1;31mReceived signal:\e[0m %d (%s)\n", info->si_signo, sigdesc);
