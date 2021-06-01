@@ -32,7 +32,7 @@ void parseargs(const size_t& max_flags, int* const argc, char** argv)
 	// Verify the program has well-formed invocation
 	int err = 0;
 	for (int i = 0; i < max_flags; i++) {
-		// If this if statement branches, print error message of your choice and exit
+		// If this conditional branches, print error message of your choice and exit
 		if ((err = opts[i].verify(argc, argv)) < 0) { std::cerr << "verify() failed for flag -" << opts[i].flag << "! err code: " << err << std::endl; exit(1); }
 	}
 

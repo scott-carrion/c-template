@@ -29,7 +29,7 @@ void flagopt::setoptstr()
 
 int flagopt::verify(int* const argc, char** argv)
 {
-	// First, check if determine if the flag is set, and, it its argpolicy requires an argument, if there is one
+	// First, determine if the flag is set, and, if its argpolicy requires an argument, if there is one
 	// Assign the private members set and arg accordingly
 	char opt; opterr = 0;  // Setting opterr to 0 silences default behavior of getopt() when it returns '?'
 	setoptstr();  // Make sure that we have an up-to-date optstr
